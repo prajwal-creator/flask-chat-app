@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Chat Away - ChitChat</title>
+            <style>
+                body{
+                    background-image:url(static/images/bg.jpg);
+                    background-size:cover;
+                    background-attachment:fixed;
+                }
+                table td{
+                background-color:#66a1ee;
+                border-radius:10px;
+                padding:3px;
+                font-size:10px;}
+                table td:hover{
+                background-color:white;
+                border-radius:10px;
+
+                }
+                table td a{
+                text-decoration:none;
+                color:white;
+                font-size:20px;
+                }
+                table td a:hover { text-decoration: none }
+                p a:hover{text-decoration:none}
+
+                 #ne{
+        margin-top:80px;
+        margin-left:450px;
+            </style>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!-- Custom css for chat pages -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/chat_style.css') }}">
+        <script type="text/javascript">
+<!--
+<!--
+rssfeed_url = new Array();
+rssfeed_url[0]="https://news.google.com/news/rss";
+rssfeed_frame_width="800";
+rssfeed_frame_height="600";
+rssfeed_scroll="on";
+rssfeed_scroll_step="3";
+rssfeed_scroll_bar="off";
+rssfeed_target="_blank";
+rssfeed_font_size="12";
+rssfeed_font_face="";
+rssfeed_border="on";
+rssfeed_css_url="https://feed.surfing-waves.com/css/style5.css";
+rssfeed_title="on";
+rssfeed_title_name="";
+rssfeed_title_bgcolor="#3366ff";
+rssfeed_title_color="#fff";
+rssfeed_title_bgimage="";
+rssfeed_footer="off";
+rssfeed_footer_name="rss feed";
+rssfeed_footer_bgcolor="#fff";
+rssfeed_footer_color="#333";
+rssfeed_footer_bgimage="";
+rssfeed_item_title_length="50";
+rssfeed_item_title_color="#666";
+rssfeed_item_bgcolor="#fff";
+rssfeed_item_bgimage="";
+rssfeed_item_border_bottom="on";
+rssfeed_item_source_icon="off";
+rssfeed_item_date="on";
+rssfeed_item_description="on";
+rssfeed_item_description_length="120";
+rssfeed_item_description_color="#666";
+rssfeed_item_description_link_color="#333";
+rssfeed_item_description_tag="off";
+rssfeed_no_items="0";
+rssfeed_cache = "84faad97a3bf632d75dd3609dce83bfa";
+//-->
+</script>
+    </head>
+
+    <body>
+        <!-- Flash error messages -->
+         {% with messages = get_flashed_messages(with_categories=true) %}
+                    <!-- The messages, if any, are returned as a list. And not all redenring of the pages will have a message. So we put a condition to check whether the messages list is empty -->
+                    {% if messages %}
+                        <!-- We will set the class form our custom css file we had created earlier. And we want to see the first item in the list. -->
+                        <div class="alert alert-{{ messages[0][0] }} " role="alert">
+                            {{ messages[0][1] }}
+                        </div>
+                        <hr>
+                    {% endif %}
+                {% endwith %}
+
+        <div class="wrapper">
+
+            <!-- Nav bar start -->
+            <nav class="navbar navbar-expand-sm navbar-light fixed-top" style="background-color: #66a1ee">
+
+                <div class="container-fluid">
+                    <div id="show-sidebar-button" class="cursor-pointer">
+                        <i class="fas fa-plus-circle "></i>
+                        <span>Rooms</span>
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <h3>Hi {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Guest{% endif %}</h3>
+                        <ul class="navbar-nav ml-auto">
+                            <table>
+                                <td><a href="http://127.0.0.1:5000/create-room"><b><font color="black">{% if current_user.is_authenticated %} Create room &nbsp&nbsp{% endif %}</font></b></a></td>
+
+                                {% if current_user.is_authenticated %}
+                                <td><a href="{{ url_for('logout') }}"><b><font color="black">Logout</font></b></a></td>
+                                {% endif %}
+                            </table>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Nav bar end -->
+
+            <!-- Main section start -->
+            <div id="main-section">
+                     {% if current_user.is_authenticated %}
+                <!-- Sidebar start -->
+                <nav id="sidebar">
+
+                    <h4>Rooms</h4>
+
+                    {% for room in rooms %}
+                    <p><a href="/rooms/{{ room._id.room_id }}" class="select-room cursor-pointer">{{ room.room_name }}</a>
+                        </p>
+                    {% endfor %}
+
+                </nav>
+                <!-- Sidebar end -->
+                <div id="ne">
+
+                                <script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script>
+
+</div>
+<div style="color:#ccc;font-size:10px; text-align:right; width:700px; margin-left:165px;">powered by <a href="https://surfing-waves.com" rel="noopener" target="_blank" style="color:#ccc;">Surfing Waves</a></div>
+<!-- end sw-rss-feed code -->
+
+                 </div>
+            {% else %}
+            <form id="rightside-pannel"><br><br><br>
+                <h3><b>&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp &nbsp  Spread Love Through Communication</b></h3>
+                <h3><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp &nbsp    Be A Part Of CHITCHAT FAMILY</b></h3>
+                <form  method="get"></form>
+
+                    <div class="form-group">
+                         <a href="/signup">
+                             <input type="submit" value="Signup" class="btn btn-warning"  style="margin-left:17%;margin-top:2%;width:150px"></a>
+
+                    </div>
+
+                     <div class="form-group">
+                         <a href="/login">
+                             <input type="submit" value="Login" class="btn btn-warning"  style="margin-left:17%;margin-top:0.5%;width:150px"></a>
+
+
+                     </div>
+            </div> {% endif %}
+            <!-- Main section end --></div>
+     </body>
+</html>

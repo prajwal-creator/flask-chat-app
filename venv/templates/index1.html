@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events - ChitChat</title>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+ <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!-- Custom css for chat pages -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/chat_style.css') }}">
+<style>
+header{
+height:100px;
+background-color:#0066ff;
+}
+main{
+height:500px;}
+main iframe{
+height:720px;
+width:100%;
+background-color:white;}
+footer{
+height:100px;
+background-color:#0066ff;
+}
+table td{
+background-color:#0066ff;
+border-radius:10px;
+padding:3px;
+font-size:25px;}
+table td:hover{
+background-color:white;
+border-radius:10px;
+
+}
+table td a{
+text-decoration:none;
+color:white;
+font-size:20px;
+}
+a:hover { text-decoration: none }
+
+
+</style>
+</head>
+<body>
+       <div class="wrapper">
+
+            <!-- Nav bar start -->
+            <nav class="navbar navbar-expand-sm navbar-light fixed-top" style="background-color:#0066ff">
+
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <h3> Events</h3>
+
+                        <ul class="navbar-nav ml-auto">
+                            <table>
+                                <tr><td> <a href="/rooms/{{room_id}}"><b><font color="black"> Home &nbsp&nbsp&nbsp</font></b></a></td>
+                                <td><a href="/events/{{room_id}}/{{username}}/pg1" target="ifr"><b><font color="black">Create Event&nbsp&nbsp&nbsp</font></b></a></td>
+                                <td><a href="/events/{{room_id}}/{{username}}/pg2" target="ifr"><b><font color="black">Delete Event&nbsp&nbsp&nbsp</font></b></a></td>
+                                <td><a href="/events/{{room_id}}/{{username}}/pg3" target="ifr"><b><font color="black">Events Available&nbsp&nbsp&nbsp</font></b></a></td>
+                                </tr>
+                                </table>
+
+
+
+
+                        </ul>
+                    </div>
+
+            </nav>
+            <!-- Nav bar end -->
+
+       </div>
+<main>
+<iframe name="ifr" src="static/images/bg.jpg">
+
+</iframe>
+</main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>events</title>
+      <style>
+        div:nth-child(even){
+         background-color:#eee;
+          border-radius:15px;
+          font-size:25px;
+          text-indent:50px;
+        }
+          div:nth-child(odd){
+         background-color:#00CCFF;
+          border-radius:15px;
+          font-size:25px;
+          text-indent:50px;
+        }
+    </style>
+</head>
+<body>
+<br><br><br>
+
+<h2>{{message}}</h2>
+
+{% for eve in eves %}
+
+<div>
+    <h4><b> Event Name:</b>{{eve.event}}<br></h4>
+   <h4> <b> Date:</b>{{eve.date}} &nbsp &nbsp &nbsp &nbsp
+       <b> Created by:</b>{{eve.username}}<br></h4>
+
+</div>
+{% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Create Event - ChitChat</title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!-- Custom css for prelogin pages -->
+        <link rel="stylesheet" type="text/css" href="/static/styles/main_style.css">
+    </head>
+
+    <body>
+        <!-- Main section start -->
+        <div class="main-section">
+                <br><br><br><br>
+
+
+            <!-- Demo image start -->
+            <div id="image-section">
+                <picture>
+                    <img class="card" src="/static/images/demo.gif" border="5px">
+                </picture>
+            </div>
+            <!-- Demo image end -->
+
+            <!-- Righthand side start -->
+            <div id="righthand-side">
+
+                <!-- Flash error messages start -->
+               {% with messages = get_flashed_messages(with_categories=true) %}
+                    <!-- The messages, if any, are returned as a list. And not all redenring of the pages will have a message. So we put a condition to check whether the messages list is empty -->
+                    {% if messages %}
+                        <!-- We will set the class form our custom css file we had created earlier. And we want to see the first item in the list. -->
+                        <div class="alert alert-{{ messages[0][0] }} " role="alert">
+                            {{ messages[0][1] }}
+                        </div>
+                        <hr>
+                    {% endif %}
+                {% endwith %}
+                <!-- Flask error messages end -->
+
+
+
+    <h2>Welcome {{username}}</h2>
+                <hr><br><br>
+
+    <form  method="POST" action="/events/{{room_id}}/{{username}}/create">
+
+      <div class="form-group">
+        <input autocomplete="off" autofocus="true" class="form-control"  name="event" placeholder="Event" required type="text" >
+        <!-- Error messages -->
+        <ul class="formError">
+
+        </ul>
+    </div>
+
+
+    <div class="form-group">
+        <input class="form-control"  name="date1"  required type="date" >
+        <!-- Error messages -->
+        <ul class="formError">
+
+        </ul>
+    </div>
+
+       <div class="form-group">
+            <button type="submit">Submit</button>
+
+        </div>
+    <hr>
+
+    </form>
+            </div>
+            <!-- Righthand side end -->
+        </div>
+        <!-- Main section end -->
+
+    </body>
+</html>

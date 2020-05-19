@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Chat Away - ChitChat</title>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!-- Custom css for chat pages -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/chat_style.css') }}">
+        <style>
+            table td{
+            background-color:#66a1ee;
+            border-radius:10px;
+            padding:3px;
+            font-size:25px;}
+            table td:hover{
+            background-color:white;
+            border-radius:10px;
+
+            }
+            table td a{
+            text-decoration:none;
+            color:white;
+            font-size:20px;
+            }
+            a:hover { text-decoration: none }
+          li { cursor: pointer;
+                display:inline;               }
+               
+        </style>
+    </head>
+
+    <body>
+        <!-- Flash error messages -->
+
+
+        <div class="wrapper">
+
+            <!-- Nav bar start -->
+            <nav class="navbar navbar-expand-sm navbar-light fixed-top" style="background-color: #66a1ee">
+
+
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <h1>Welcome to chat room: {{ room.name }}</h1>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <table>
+                                 <td><a href="/"><font color="black"><b> Home </b> &nbsp&nbsp</font></a></td>
+                                <td><a href="/events/{{room_id}}/"><font color="black"><b> Events </b> &nbsp&nbsp</font></a></td>
+                                <td><a href="http://127.0.0.1:5000//rooms/{{ room_id }}/del"><font color="black"><b> Delete messages </b> &nbsp&nbsp</font></a></td>
+                            <li class="nav-item">
+                                <td> <a  href="http://127.0.0.1:5000//rooms/{{ room_id }}/edit"><font color="black"><b> Edit Room</b></font></a></td>
+                            </li>
+                                <td><a href="http://127.0.0.1:5000//rooms/{{room_id}}/delete"><font color="black"><b>&nbsp Delete Room </b> &nbsp&nbsp</font></a></td>
+                            </table>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Nav bar end -->
+
+            <!-- Main section start -->
+            <div id="main-section">
+
+                <!-- Sidebar start -->
+                <nav id="sidebar">
+                    <h4>Members</h4>
+                    {% for member in room_members %}
+                        <p class="select-room cursor-pointer">{{ member._id.username }}</p>
+                    {% endfor %}
+
+                <div><center><h4>EMOJIS</h4></center>
+                    <li id="emo1" onclick="f1('emo1')">
+                        {{a}}
+                    </li>
+                    <li id="emo2" onclick="f1('emo2')">
+                        {{b}}
+                    </li>
+                    <li id="emo3" onclick="f1('emo3')">
+                        {{c}}
+                    </li>
+
+                    <li id="emo4" onclick="f1('emo4')">
+                        {{d}}
+                    </li>
+                    <li id="emo5" onclick="f1('emo5')">
+                        {{e}}
+                    </li>
+    <br>
+
+                    <li id="emo6" onclick="f1('emo6')">
+                        {{f}}
+                    </li>
+                    <li id="emo7" onclick="f1('emo7')">
+                        {{g}}
+                    </li>
+                    <li id="emo8" onclick="f1('emo8')">
+                        {{h}}
+                    </li>
+
+                    <li id="emo9" onclick="f1('emo9')">
+                        {{i}}
+                    </li>
+                    <li id="emo10" onclick="f1('emo10')">
+                        {{j}}
+                    </li>
+    <br>
+
+                    <li id="emo11" onclick="f1('emo11')">
+                        {{k}}
+                    </li>
+                    <li id="emo12" onclick="f1('emo12')">
+                        {{l}}
+                    </li>
+                    <li id="emo13" onclick="f1('emo13')">
+                        {{m}}
+                    </li>
+
+                    <li id="emo14" onclick="f1('emo14')">
+                        {{n}}
+                    </li>
+                    <li id="emo15" onclick="f1('emo15')">
+                        {{o}}
+                    </li>
+    <br>
+
+                    <li id="emo16" onclick="f1('emo16')">
+                        {{p}}
+                    </li>
+                    <li id="emo17" onclick="f1('emo17')">
+                        {{q}}
+                    </li>
+                    <li id="emo18" onclick="f1('emo18')">
+                        {{r}}
+                    </li>
+
+                    <li id="emo19" onclick="f1('emo19')">
+                        {{s}}
+                    </li>
+                    <li id="emo20" onclick="f1('emo20')">
+                        {{t}}
+                    </li>
+    <br>
+
+                    <li id="emo21" onclick="f1('emo21')">
+                        {{u}}
+                    </li>
+                    <li id="emo22" onclick="f1('emo22')">
+                        {{v}}
+                    </li>
+                    <li id="emo23" onclick="f1('emo23')">
+                        {{w}}
+                    </li>
+
+                    <li id="emo24" onclick="f1('emo24')">
+                        {{x}}
+                    </li>
+                    <li id="emo25" onclick="f1('emo25')">
+                        {{y}}
+                    </li>
+    <br>
+
+                    <li id="emo26" onclick="f1('emo26')">
+                        {{a1}}
+                    </li>
+                    <li id="emo27" onclick="f1('emo27')">
+                        {{b1}}
+                    </li>
+                    <li id="emo28" onclick="f1('emo28')">
+                        {{c1}}
+                    </li>
+
+                    <li id="emo29" onclick="f1('emo29')">
+                        {{d1}}
+                    </li>
+                    <li id="emo30" onclick="f1('emo30')">
+                        {{e1}}
+                    </li>
+    <br>
+
+                    <li id="emo31" onclick="f1('emo31')">
+                        {{f1}}
+                    </li>
+                    <li id="emo32" onclick="f1('emo32')">
+                        {{g1}}
+                    </li>
+                    <li id="emo33" onclick="f1('emo33')">
+                        {{h1}}
+                    </li>
+
+                    <li id="emo34" onclick="f1('emo34')">
+                        {{i1}}
+                    </li>
+                    <li id="emo35" onclick="f1('emo35')">
+                        {{j1}}
+                    </li>
+    <br>
+
+                    <li id="emo36" onclick="f1('emo36')">
+                        {{k1}}
+                    </li>
+                    <li id="emo37" onclick="f1('emo37')">
+                        {{l1}}
+                    </li>
+                    <li id="emo38" onclick="f1('emo38')">
+                        {{m1}}
+                    </li>
+
+                    <li id="emo39" onclick="f1('emo39')">
+                        {{n1}}
+                    </li>
+                    <li id="emo40" onclick="f1('emo40')">
+                        {{o1}}
+                    </li>
+    <br>
+
+                    <li id="emo41" onclick="f1('emo41')">
+                        {{p1}}
+                    </li>
+                    <li id="emo42" onclick="f1('emo42')">
+                        {{q1}}
+                    </li>
+                    <li id="emo43" onclick="f1('emo43')">
+                        {{r1}}
+                    </li>
+
+                    <li id="emo44" onclick="f1('emo44')">
+                        {{s1}}
+                    </li>
+                    <li id="emo45" onclick="f1('emo45')">
+                        {{t1}}
+                    </li>
+    <br>
+
+                    <li id="emo46" onclick="f1('emo46')">
+                        {{u1}}
+                    </li>
+                    <li id="emo47" onclick="f1('emo47')">
+                        {{v1}}
+                    </li>
+                    <li id="emo48" onclick="f1('emo48')">
+                        {{w1}}
+                    </li>
+
+                    <li id="emo49" onclick="f1('emo49')">
+                        {{x1}}
+                    </li>
+                    <li id="emo50" onclick="f1('emo50')">
+                        {{y1}}
+                    </li>
+    <br>
+
+                    <li id="emo51" onclick="f1('emo51')">
+                        {{a2}}
+                    </li>
+                    <li id="emo52" onclick="f1('emo52')">
+                        {{b2}}
+                    </li>
+                    <li id="emo53" onclick="f1('emo53')">
+                        {{c2}}
+                    </li>
+
+                    <li id="emo54" onclick="f1('emo54')">
+                        {{d2}}
+                    </li>
+                    <li id="emo55" onclick="f1('emo55')">
+                        {{e2}}
+                    </li>
+    <br>
+
+                    <li id="emo56" onclick="f1('emo56')">
+                        {{f2}}
+                    </li>
+                    <li id="emo57" onclick="f1('emo57')">
+                        {{g2}}
+                    </li>
+                    <li id="emo58" onclick="f1('emo58')">
+                        {{h2}}
+                    </li>
+
+                    <li id="emo59" onclick="f1('emo59')">
+                        {{i2}}
+                    </li>
+                    <li id="emo60" onclick="f1('emo60')">
+                        {{j2}}
+                    </li>
+    <br>
+
+                    <li id="emo61" onclick="f1('emo61')">
+                        {{k2}}
+                    </li>
+                    <li id="emo62" onclick="f1('emo62')">
+                        {{l2}}
+                    </li>
+                    <li id="emo63" onclick="f1('emo63')">
+                        {{m2}}
+                    </li>
+
+                    <li id="emo64" onclick="f1('emo64')">
+                        {{n2}}
+                    </li>
+                    <li id="emo65" onclick="f1('emo65')">
+                        {{o2}}
+                    </li>
+
+</div>
+
+
+
+
+
+
+
+
+
+                </nav>
+                <!-- Sidebar end -->
+
+                <!-- Rightside pannel start -->
+                <div id="rightside-pannel">
+
+                    <!-- Display message start-->
+                    <div id="display-message-section">
+                        <div class="form-group">
+                             <input type="button" id="load_older_messages_btn" value="Load older messages" class="btn btn-warning"  style="margin-top:0.5%;width:1300px">
+                        </div>
+
+                          <div id="messages" >
+
+                                 {% for message in messages %}
+                                                <div class="others-msg"><h4><b>{{ message.sender }}</b></h4>
+                            <h5>{{ message.text }}</h5>
+                            [{{ message.created_at }}]
+                    </div><br>
+                              {% endfor %}
+                      </div>
+                    </div>
+                    <!-- Display message end -->
+
+                    <!-- Type message start -->
+                    <form id="message_input_form">
+                   <div id="input-area" class="input-group mb-3">
+                       <input type="text" id="message_input" class="form-control" placeholder="Type here..." aria-label="Type a message" aria-describedby="basic-addon2" autofocus="true" autocomplete="off">
+                        <div class="input-group-append">
+                            <button id="send_message" class="btn btn-warning" type="submit">SEND <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                   </div></form>
+                    <!-- Type message end -->
+                </div>
+                <!-- Rightside pannel end -->
+            </div>
+            <!-- Main section end -->
+        </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script>
+    const socket = io.connect("http://127.0.0.1:5000");
+
+    socket.on('connect', function () {
+        socket.emit('join_room', {
+            username: "{{ username }}",
+            room: "{{ room._id }}"
+        });
+
+        let message_input = document.getElementById('message_input');
+
+        document.getElementById('message_input_form').onsubmit = function (e) {
+            e.preventDefault();
+            let message = message_input.value.trim();
+            if (message.length) {
+                socket.emit('send_message', {
+                    username: "{{ username }}",
+                    room: "{{ room._id }}",
+                    message: message
+                })
+            }
+            message_input.value = '';
+            message_input.focus();
+        }
+    });
+
+    let page = 0;
+
+    document.getElementById("load_older_messages_btn").onclick = (e) => {
+        page += 1;
+        fetch("/rooms/{{ room._id }}/messages?page=" + page, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            response.json().then(messages => {
+                messages.reverse().forEach(message => prepend_message(message.text, message.sender, message.created_at));
+            })
+        })
+    };
+
+    function prepend_message(message, username, created_at) {
+        const newNode = document.createElement('div');
+        newNode.innerHTML = `<div class="others-msg"><h4><b>${username}</h4></b><h5>${message}</h5>[${created_at}]</div><br>`;
+        const messages_div = document.getElementById('messages');
+        messages_div.insertBefore(newNode, messages_div.firstChild);
+    }
+
+    window.onbeforeunload = function () {
+        socket.emit('leave_room', {
+            username: "{{ username }}",
+            room: "{{ room._id }}"
+        })
+    };
+
+    socket.on('receive_message', function (data) {
+        console.log(data);
+        const newNode = document.createElement('div');
+        newNode.innerHTML = `<div class="my-msg"><h4><b>${data.username}</h4></b><h5>${data.message}</h5>[${data.created_at}]</div><br>`;
+        document.getElementById('messages').appendChild(newNode);
+    });
+
+    socket.on('join_room_announcement', function (data) {
+        console.log(data);
+        if (data.username !== "{{ username }}") {
+            const newNode = document.createElement('div');
+            newNode.innerHTML = `<h4><b>${data.username}</b> has joined the room</h4>`;
+            document.getElementById('messages').appendChild(newNode);
+        }
+    });
+
+    socket.on('leave_room_announcement', function (data) {
+        console.log(data);
+        const newNode = document.createElement('div');
+        newNode.innerHTML = `<h4><b>${data.username}</b> has left the room</h4>`;
+        document.getElementById('messages').appendChild(newNode);
+    });
+   function f1(id)
+    {
+
+                a=document.getElementById('message_input');
+                b=document.getElementById(id);
+                c=b.innerHTML
+                a.value=a.value+c.trim();
+
+    }
+
+</script>
+</html>
