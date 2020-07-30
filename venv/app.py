@@ -17,7 +17,7 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 
 app = Flask(__name__)
-app.secret_key = "so long"
+app.secret_key = os.environ.get('SECRET')
 socketio = SocketIO(app)
 login_manager = LoginManager()
 login_manager.login_view = 'login'
