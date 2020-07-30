@@ -1,0 +1,17 @@
+beautifulsoup4==4.9.1
+bs4==0.0.1
+certifi==2020.4.5.2
+chardet==3.0.4
+comtypes==1.1.7
+gunicorn==20.0.4
+idna==2.9
+lxml==4.5.1
+Pillow==7.1.2
+pypiwin32==223
+pyttsx3==2.88
+pywin32==228
+requests==2.23.0
+return==0.1.0
+simple-image-viewer==0.1.0
+soupsieve==2.0.1
+urllib3==1.25.9
