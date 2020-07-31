@@ -9,7 +9,7 @@ lxml==4.5.1
 Pillow==7.1.2
 pypiwin32==223
 pyttsx3==2.88
-pywin32==228
+pywin32==227
 requests==2.23.0
 return==0.1.0
 simple-image-viewer==0.1.0
