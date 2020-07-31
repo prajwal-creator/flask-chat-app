@@ -13,4 +13,4 @@ return==0.1.0
 simple-image-viewer==0.1.0
 soupsieve==2.0.1
 urllib3==1.25.9
-pypiwin32==223
+
